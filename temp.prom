@@ -1,0 +1,6 @@
+# HELP ambient_temperature_farenheit Temperature read off of external sensor.
+# TYPE ambient_temperature_farenheit gauge
+ambient_temperature_farenheit{type="backyard"} 78.800
+# HELP ambient_temperature_celsius Temperature read off of external sensor.
+# TYPE ambient_temperature_celsius gauge
+ambient_temperature_celcius{type="backyard"} 26.000
