@@ -13,7 +13,6 @@ i2c = board.I2C()  # uses board.SCL and board.SDA
 sensor = adafruit_tc74.TC74(i2c)
 
 tmpfile =os.path.join(tempfile.gettempdir(),'temp.prom')
-print (tmpfile)
 
 #file = open('/var/lib/prometheus/node-exporter/temp.prom', 'w')
 file = open(tmpfile, 'w')
