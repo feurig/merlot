@@ -25,5 +25,4 @@ print("# HELP ambient_temperature_celsius Temperature read off of external senso
 print("# TYPE ambient_temperature_celsius gauge")
 print("ambient_temperature_celcius{type=\"backyard\"} %0.3f" % sensor.temperature)
 file.close()
-os.chmod(tmpfile, os.stat(tmpfile).st_mode | 0o111)
 os.replace(tmpfile, '/var/lib/prometheus/node-exporter/temp.prom')
