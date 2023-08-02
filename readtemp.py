@@ -22,14 +22,14 @@ for tempsensorid in i2c.scan():
         sensor = adafruit_tc74.TC74(i2c)
         TempRead=sensor.temperature
         GotTemperature = True
-    elif (tempsensorid==38):
+    elif (tempsensorid==56):
         print ("found an AHTx0")
         sensor = adafruit_ahtx0.AHTx0(i2c)
         TempRead=sensor.temperature
         GotTemperature = True
         HumidityRead = sensor.relative_humidity
     else:
-        print ("found something else " tempsensorid)
+        print ("found something else ", tempsensorid)
 
 if (GotTemperature):
     
