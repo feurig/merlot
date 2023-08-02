@@ -6,11 +6,14 @@
 import sys
 import board
 import adafruit_tc74
+import adafruit_ahtx0
 import tempfile
 import os
 
 GotTemperature = False
+GotHumidity = False
 TempRead=0
+HumidityRead=0
 
 i2c = board.I2C()  # uses board.SCL and board.SDA
 for tempsensorid in i2c.scan():
@@ -19,6 +22,12 @@ for tempsensorid in i2c.scan():
         sensor = adafruit_tc74.TC74(i2c)
         TempRead=sensor.temperature
         GotTemperature = True
+    if (tempsensorid==38):
+        print ("found an AHTx0")
+        sensor = adafruit_ahtx0.AHTx0(i2c)
+        TempRead=sensor.temperature
+        GotTemperature = True
+        HumidityRead = sensor.relative_humidity
 
 if (GotTemperature):
     
