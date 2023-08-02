@@ -29,7 +29,7 @@ for tempsensorid in i2c.scan():
         GotTemperature = True
         HumidityRead = sensor.relative_humidity
     else:
-	print ("found something else " tempsensorid)
+        print ("found something else " tempsensorid)
 
 if (GotTemperature):
     
