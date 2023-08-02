@@ -14,7 +14,7 @@ TempRead=0
 
 i2c = board.I2C()  # uses board.SCL and board.SDA
 for tempsensorid in i2c.scan():
-    if (tempsensorid=72):
+    if (tempsensorid==72):
         print ("found a TC74")
         sensor = adafruit_tc74.TC74(i2c)
         TempRead=sensor.temperature
