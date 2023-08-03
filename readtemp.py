@@ -26,7 +26,7 @@ for tempsensorid in i2c.scan():
         print ("found an AHTx0")
         sensor = adafruit_ahtx0.AHTx0(i2c)
         TempRead=sensor.temperature
-        GotTemperature = True
+        GotHumidity = True
         HumidityRead = sensor.relative_humidity
     else:
         print ("found something else ", tempsensorid)
