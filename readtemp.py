@@ -38,11 +38,16 @@ if (GotTemperature):
     #file = open('/var/lib/prometheus/node-exporter/temp.prom', 'w')
     file = open(tmpfile, 'w')
     sys.stdout = file
-    print("# HELP ambient_temperature_farenheit Temperature read off of external sensor.")
-    print("# TYPE ambient_temperature_farenheit gauge")
-    print("ambient_temperature_farenheit{type=\"backyard\"} %0.3f" % ((sensor.temperature * 1.8) + 32.0))
-    print("# HELP ambient_temperature_celsius Temperature read off of external sensor.")
-    print("# TYPE ambient_temperature_celsius gauge")
-    print("ambient_temperature_celcius{type=\"backyard\"} %0.3f" % sensor.temperature)
+    print("# HELP home_temperature_farenheit Temperature read off of external sensor.")
+    print("# TYPE home_temperature_farenheit gauge")
+    print("home_temperature_farenheit %0.3f" % ((sensor.temperature * 1.8) + 32.0))
+    print("# HELP home_temperature_celsius Temperature read off of external sensor.")
+    print("# TYPE home_temperature_celsius gauge")
+    print("ambient_temperature_celcius %0.3f" % sensor.temperature)
+    if (GotHumidity):
+        print("# HELP home_relative_humidity Temperature read off of external sensor.")
+        print("# TYPE home_relative_humidity gauge")
+        print("home_relative_humidity %0.3f" % sensor.relative_humidity)
+
     file.close()
     os.replace(tmpfile, '/var/lib/prometheus/node-exporter/temp.prom')
