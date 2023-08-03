@@ -26,8 +26,9 @@ for tempsensorid in i2c.scan():
         print ("found an AHTx0")
         sensor = adafruit_ahtx0.AHTx0(i2c)
         TempRead=sensor.temperature
-        GotHumidity = True
+        GotTemperature = True
         HumidityRead = sensor.relative_humidity
+        GotHumidity = True
     else:
         print ("found something else ", tempsensorid)
 
@@ -48,6 +49,5 @@ if (GotTemperature):
         print("# HELP home_relative_humidity Temperature read off of external sensor.")
         print("# TYPE home_relative_humidity gauge")
         print("home_relative_humidity %0.3f" % sensor.relative_humidity)
-
     file.close()
     os.replace(tmpfile, '/var/lib/prometheus/node-exporter/temp.prom')
