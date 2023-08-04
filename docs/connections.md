@@ -1,0 +1,4 @@
+- dht20 ![dht20](images/dht20pins.png)
+- tc74 ![tc74](images/tc74.png)
+- pi header ![pihead](images/pihead.png)
+- qwiic ![qwiic](images/qwiic.png)
