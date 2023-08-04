@@ -44,7 +44,7 @@ if (GotTemperature):
     print("home_temperature_farenheit %0.3f" % ((sensor.temperature * 1.8) + 32.0))
     print("# HELP home_temperature_celsius Temperature read off of external sensor.")
     print("# TYPE home_temperature_celsius gauge")
-    print("ambient_temperature_celcius %0.3f" % sensor.temperature)
+    print("home_temperature_celcius %0.3f" % sensor.temperature)
     if (GotHumidity):
         print("# HELP home_relative_humidity Temperature read off of external sensor.")
         print("# TYPE home_relative_humidity gauge")
