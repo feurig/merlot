@@ -1,8 +1,12 @@
 Adafruit-Blinka==8.20.1
 adafruit-circuitpython-ahtx0==1.0.18
 adafruit-circuitpython-busdevice==5.2.6
+adafruit-circuitpython-dps310==2.1.12
+adafruit-circuitpython-epd==2.12.0
+adafruit-circuitpython-framebuf==1.6.3
 adafruit-circuitpython-register==1.9.16
 adafruit-circuitpython-requests==2.0.1
+adafruit-circuitpython-sht4x==1.0.17
 adafruit-circuitpython-tc74==1.0.15
 adafruit-circuitpython-typing==1.9.4
 Adafruit-PlatformDetect==3.49.0
