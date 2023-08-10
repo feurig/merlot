@@ -34,7 +34,7 @@ for tempsensorid in i2c.scan():
         i_can_has_temperature = True
         humidity_read = sensor.relative_humidity
         i_can_has_humidity = True
-    elif (False): # tempsensorid==44):
+    elif (False): #tempsensorid==44):
         print ("found an SHT4x")
         sensor = adafruit_sht4x.SHT4x(board.I2C())
         temperature_read=sensor.temperature
