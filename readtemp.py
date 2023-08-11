@@ -1,7 +1,7 @@
 #!/usr/bin/python
 #-------------------------------------------------------------------readtemp.py
 #
-#  detect i2c temperature sensor read it and put its data where node_exporter
+#  detect i2c temperature sensor, read it, and put its data where node_exporter
 #  will send it to prometheus.
 # 
 # (C) D Delmar Davis 2023 
@@ -62,8 +62,6 @@ for tempsensorid in i2c.scan():
 if (i_can_has_temperature):
     
     tmpfile =os.path.join(tempfile.gettempdir(),'temp.prom')
-
-    #file = open('/var/lib/prometheus/node-exporter/temp.prom', 'w')
     file = open(tmpfile, 'w')
     sys.stdout = file
     print("# HELP home_temperature_farenheit Temperature read off of external sensor.")
