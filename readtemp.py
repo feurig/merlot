@@ -1,6 +1,14 @@
 #!/usr/bin/python
-# should probly be some sort of  arguments for file name.
+#-------------------------------------------------------------------readtemp.py
 #
+#  detect i2c temperature sensor read it and put its data where node_exporter
+#  will send it to prometheus.
+# 
+# (C) D Delmar Davis 2023 
+#
+# Note: POC lots of hard coded foo here....
+# should probly be some sort of  arguments for file name.
+# your crontab should look like this
 # */1 * * * * /usr/local/bin/readtemp.py
 
 import sys

@@ -1,13 +1,10 @@
 #!/usr/bin/python
-# SPDX-FileCopyrightText: <text> 2020 Tony DiCola, James DeVito,
-# and 2020 Melissa LeBlanc-Williams, for Adafruit Industries </text>
-
-# SPDX-License-Identifier: MIT
-
-
-# This example is for use on (Linux) computers that are using CPython with
-# Adafruit Blinka to support CircuitPython libraries. CircuitPython does
-# not support PIL/pillow (python imaging library)!
+#--------------------------------------------------------------------- clock.py
+# Display date and time as well as indoor and outdoor temperatures
+# 
+# (C) D Delmar Davis 2023 
+#
+# Note: POC lots of hard coded foo here....
 
 import time
 import subprocess
@@ -17,31 +14,16 @@ import digitalio
 from PIL import Image, ImageDraw, ImageFont
 import adafruit_ssd1305
 
-# Define the Reset Pin
 oled_reset = digitalio.DigitalInOut(D4)
-
-# Create the I2C interface.
 i2c = busio.I2C(SCL, SDA)
-
-# Create the SSD1305 OLED class.
-# The first two parameters are the pixel width and pixel height.  Change these
-# to the right size for your display!
 disp = adafruit_ssd1305.SSD1305_I2C(128, 32, i2c, reset=oled_reset)
-
-# Clear display.
 disp.fill(0)
 disp.show()
 
-# Create blank image for drawing.
-# Make sure to create image with mode '1' for 1-bit color.
 width = disp.width
 height = disp.height
 image = Image.new("1", (width, height))
-
-# Get drawing object to draw on image.
 draw = ImageDraw.Draw(image)
-
-# Draw a black filled box to clear the image.
 draw.rectangle((0, 0, width, height), outline=0, fill=0)
 
 # Draw some shapes.
@@ -65,23 +47,21 @@ while True:
     # Draw a black filled box to clear the image.
     draw.rectangle((0, 0, width, height), outline=0, fill=0)
 
-    # Shell scripts for system monitoring from here:
-    # https://unix.stackexchange.com/questions/119126/command-to-display-memory-usage-disk-usage-and-cpu-load
     cmd = "hostname -I | cut -d' ' -f1"
     IP = subprocess.check_output(cmd, shell=True).decode("utf-8")
     cmd = "date +%X\ %d%b%y"
-    CPU = subprocess.check_output(cmd, shell=True).decode("utf-8")
+    TimeDate = subprocess.check_output(cmd, shell=True).decode("utf-8")
     cmd = "fetchtemp.py"
-    MemUsage = subprocess.check_output(cmd, shell=True).decode("utf-8")
+    LocalTemp = subprocess.check_output(cmd, shell=True).decode("utf-8")
     cmd = 'gathertemps.py'
-    Disk = subprocess.check_output(cmd, shell=True).decode("utf-8")
+    PromData = subprocess.check_output(cmd, shell=True).decode("utf-8")
 
     # Write four lines of text.
 
     draw.text((x, top + 0), "IP: " + IP, font=font, fill=255)
-    draw.text((x, top + 8), CPU, font=font, fill=255)
-    draw.text((x, top + 16), MemUsage, font=font, fill=255)
-    draw.text((x, top + 25), Disk, font=font, fill=255)
+    draw.text((x, top + 8), TimeDate, font=font, fill=255)
+    draw.text((x, top + 16), LocalTemp, font=font, fill=255)
+    draw.text((x, top + 25), PromData, font=font, fill=255)
 
     # Display image.
     disp.image(image)
