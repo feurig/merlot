@@ -29,7 +29,7 @@ def isExporting():
     return False
 
 #---------------------------------------------------------------- kickThumper()
-# Make sure the poe port is on an powercycle that port
+# Make sure the poe port is on and powercycle that port
 #
 def kickThumper():
     ret = subprocess.call(["ssh",
