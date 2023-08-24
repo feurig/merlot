@@ -25,3 +25,7 @@ I have a bunch pi zeros and $3 ethernet adapters and poe power adapters. Now I j
 ![xHT20](docs/images/dht20pins.png)
 
 ![24h](docs/images/24h.png)
+
+# References
+
+- [https://www.devwithimagination.com/2022/08/07/restarting-poe-via-ssh-on-a-usw-lite-16-poe/](https://www.devwithimagination.com/2022/08/07/restarting-poe-via-ssh-on-a-usw-lite-16-poe/)

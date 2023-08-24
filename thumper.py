@@ -31,6 +31,8 @@ def isExporting():
 #---------------------------------------------------------------- kickThumper()
 # Make sure the poe port is on and powercycle that port
 #
+# https://www.devwithimagination.com/2022/08/07/restarting-poe-via-ssh-on-a-usw-lite-16-poe/
+
 def kickThumper():
     ret = subprocess.call(["ssh",
                             "root@henri-le-renne",
