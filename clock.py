@@ -48,7 +48,7 @@ while True:
             disp.poweron()
             displayIsOff=False
     else:
-        if (thetime.hour>18 or thetime.hour<6):
+        if (thetime.hour>19 or thetime.hour<6):
             disp.poweroff()
             displayIsOff=True
 
