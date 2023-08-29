@@ -13,6 +13,9 @@ import busio
 import digitalio
 from PIL import Image, ImageDraw, ImageFont
 import adafruit_ssd1305
+from datetime import datetime
+
+displayIsOff = False;
 
 oled_reset = digitalio.DigitalInOut(D4)
 i2c = busio.I2C(SCL, SDA)
@@ -37,7 +40,19 @@ x = 0
 # Load default font.
 font = ImageFont.load_default()
 
+
 while True:
+    thetime=datetime.now()
+    if(displayIsOff):
+        if (thetime.hour<=18 and thetime.hour>=6):
+            disp.poweron()
+            displayIsOff=False
+    else:
+        if (thetime.hour>18 or thetime.hour<6):
+            disp.poweroff()
+            displayIsOff=True
+
+
     # Draw a black filled box to clear the image.
     draw.rectangle((0, 0, width, height), outline=0, fill=0)
 
