@@ -26,6 +26,12 @@ I have a bunch pi zeros and $3 ethernet adapters and poe power adapters. Now I j
 
 ![24h](docs/images/24h.png)
 
+## sht30
+
+![sht30](docs/images/sht30.png)
+
 # References
 
 - [https://www.devwithimagination.com/2022/08/07/restarting-poe-via-ssh-on-a-usw-lite-16-poe/](https://www.devwithimagination.com/2022/08/07/restarting-poe-via-ssh-on-a-usw-lite-16-poe/)
+- https://ashwinikd.github.io/monitoring/router/prometheus/2020/08/03/monitor-router-temperature.html
+- https://opensource.com/article/21/7/home-temperature-raspberry-pi-prometheus
