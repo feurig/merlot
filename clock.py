@@ -46,6 +46,8 @@ while True:
     if(displayIsOff):
         if (thetime.hour<=18 and thetime.hour>=6):
             disp.poweron()
+            disp.fill(0)
+            disp.show()
             displayIsOff=False
     else:
         if (thetime.hour>19 or thetime.hour<6):
