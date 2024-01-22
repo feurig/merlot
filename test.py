@@ -75,15 +75,11 @@ while True:
     # https://unix.stackexchange.com/questions/119126/command-to-display-memory-usage-disk-usage-and-cpu-load
     cmd = "hostname -I | cut -d' ' -f1"
     IP = "IP: " + subprocess.check_output(cmd, shell=True).decode("utf-8")
-    cmd = "top -bn1 | grep load | awk '{printf \"CPU Load: %.2f\", $(NF-2)}'"
-    CPU = subprocess.check_output(cmd, shell=True).decode("utf-8")
-    cmd = 'df -h | awk \'$NF=="/"{printf "Disk: %d/%d GB  %s", $3,$2,$5}\''
-    Disk = subprocess.check_output(cmd, shell=True).decode("utf-8")
     cmd = "cat /sys/class/thermal/thermal_zone0/temp |  awk '{printf \"CPU Temp: %.1f C\", $(NF-0) / 1000}'"  # pylint: disable=line-too-long
     Temp = subprocess.check_output(cmd, shell=True).decode("utf-8")
     cmd = "date +%X\ %d%b%y"
     TimeDate = subprocess.check_output(cmd, shell=True).decode("utf-8")
-    cmd = "fetchtemp.py"
+    cmd = "localtemp.py"
     LocalTemp = subprocess.check_output(cmd, shell=True).decode("utf-8")
 
     # Write four lines of text.
