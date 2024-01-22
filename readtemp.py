@@ -4,7 +4,7 @@
 #  detect i2c temperature sensor, read it, and put its data where node_exporter
 #  will send it to prometheus.
 # 
-# (C) D Delmar Davis 2023 
+# (C) D Delmar Davis 2023-24 
 #
 # Note: POC lots of hard coded foo here....
 # should probly be some sort of  arguments for file name.
@@ -16,6 +16,7 @@ import board
 import adafruit_tc74
 import adafruit_ahtx0
 import adafruit_sht4x
+import adafruit_mcp9808
 from adafruit_dps310.basic import DPS310
 import tempfile
 import os
@@ -56,6 +57,11 @@ for tempsensorid in i2c.scan():
         i_can_has_temperature = True
         pressure_read = sensor.pressure
         i_can_has_pressure = True
+    elif (tempsensorid==24):
+        print ("found an mcp9808")
+        sensor = adafruit_mcp9808.MCP9808(i2c)
+        temperature_read=sensor.temperature
+        i_can_has_temperature = True
     else:
         print ("found something else ", tempsensorid)
 
