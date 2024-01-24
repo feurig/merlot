@@ -11,6 +11,8 @@ We keep our house comfortable during the summer by opening the house in the even
 # Hardware
 
 ![](docs/images/tempsensor.jpeg)
+![](docs/images/rogerDPS310.jpg)
+![](docs/images/naughtybunnymcp9808.jpg)
 
 I have a bunch pi zeros and $3 ethernet adapters and poe power adapters. Now I just need to get some temperature sensors. Especially since the one pictured above only has a 1.8 degree F (1 degree C) resolution.
 
