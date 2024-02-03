@@ -1,5 +1,5 @@
 # node-export-temperatures
-
+![This](docs/images/Metrics.png)
 TL;DR; Cheap prometheus trick. 
 
 We've been rolling out prom/node_exp/vmalert/usw at work for over a year now and I just now realized that you could just dump stuff in /var/lib/prometheus/node-exporter/
@@ -22,7 +22,7 @@ I have a bunch pi zeros and $3 ethernet adapters and poe power adapters. Now I j
 
 ![tc74](docs/images/tc74.png)
 
-## xHT20
+## xHT20/
 
 ![xHT20](docs/images/dht20pins.png)
 
