@@ -70,7 +70,6 @@ def draw_clock(t: datetime):
     # Draw a black filled box to clear the image.
 
 while True:
-  try:
     thetime=datetime.now()
     if(displayIsOff):
         if (thetime.hour<=22 and thetime.hour>=6):
