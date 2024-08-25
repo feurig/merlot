@@ -18,13 +18,14 @@ import math
 import atexit
 import signal
 
-displayIsOff = False;
 
 oled_reset = digitalio.DigitalInOut(D4)
 i2c = busio.I2C(SCL, SDA)
 disp = adafruit_ssd1305.SSD1305_I2C(128, 32, i2c, reset=oled_reset)
+disp.poweron()
 disp.fill(0)
 disp.show()
+displayIsOff=False 
 
 width = disp.width
 height = disp.height
@@ -71,16 +72,16 @@ def draw_clock(t: datetime):
 
 while True:
     thetime=datetime.now()
-    if(displayIsOff):
-        if (thetime.hour<=22 and thetime.hour>=6):
-            disp.poweron()
-            disp.fill(0)
-            disp.show()
-            displayIsOff=False 
-        else:
-          if (thetime.hour>23 or thetime.hour<6):
-            disp.poweroff()
-            displayIsOff=True
+#    if(displayIsOff):
+#        if (thetime.hour<=22 and thetime.hour>=6):
+#            disp.poweron()
+#            disp.fill(0)
+#            disp.show()
+#            displayIsOff=False 
+#       else:
+#          if (thetime.hour>23 or thetime.hour<6):
+#            disp.poweroff()
+#            displayIsOff=True
 
 
     # Draw a black filled box to clear the image.
