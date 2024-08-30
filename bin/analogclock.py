@@ -21,10 +21,11 @@ display = st7789.ST7789(
     dc=dc_pin,
     rst=reset_pin,
     baudrate=BAUDRATE,
-    width=135,
+    width=240,
     height=240,
-    x_offset=53,
-    y_offset=40,
+    x_offset=0,
+    y_offset=80,
+    rotation = 180
 )
 
 backlight = digitalio.DigitalInOut(board.D22)
@@ -36,10 +37,10 @@ buttonA.switch_to_input()
 buttonB.switch_to_input()
 
 """
-# width = disp.width
-# height = disp.height
-width = 250
-height = 250
+width = display.width
+height = display.height
+#width = 250
+#height = 250
 image = Image.new("1", (width, height))
 draw = ImageDraw.Draw(image)
 draw.rectangle((0, 0, width, height), outline=0, fill=0)
