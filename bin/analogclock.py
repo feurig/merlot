@@ -25,7 +25,7 @@ display = st7789.ST7789(
     height=240,
     x_offset=0,
     y_offset=80,
-    
+    rotation=180    
 )
 
 backlight = digitalio.DigitalInOut(board.D22)
@@ -80,10 +80,15 @@ def draw_clock(t: datetime):
     draw.line([center,center,center+hx,center+hy], fill=255, width=0)
 
 
-while true:
+while True:
     try:
         thetime=datetime.now()
         draw_clock(thetime)
+        display.image(image)
+        #display.show()
+        time.sleep(0.1)
+
+
     
     except Exception as e:
         print(e)
