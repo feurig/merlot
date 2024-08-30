@@ -25,7 +25,7 @@ display = st7789.ST7789(
     height=240,
     x_offset=0,
     y_offset=80,
-    rotation = 180
+    
 )
 
 backlight = digitalio.DigitalInOut(board.D22)
@@ -36,12 +36,13 @@ buttonB = digitalio.DigitalInOut(board.D24)
 buttonA.switch_to_input()
 buttonB.switch_to_input()
 
-"""
+
 width = display.width
 height = display.height
 #width = 250
 #height = 250
-image = Image.new("1", (width, height))
+image = Image.new("RGB", (width, height))
+rotation = 180
 draw = ImageDraw.Draw(image)
 draw.rectangle((0, 0, width, height), outline=0, fill=0)
 
@@ -77,18 +78,12 @@ def draw_clock(t: datetime):
     draw.ellipse((top, top, bottom, bottom), fill = 0, outline =255)
     draw.line([center,center,center+mx,center+my], fill=255, width=0)
     draw.line([center,center,center+hx,center+hy], fill=255, width=0)
-"""
-# SPDX-FileCopyrightText: 2021 ladyada for Adafruit Industries
-# SPDX-License-Identifier: MIT
-# Main loop:
-while True:
-    if buttonA.value and buttonB.value:
-        backlight.value = False  # turn off backlight
-    else:
-        backlight.value = True  # turn on backlight
-    if buttonB.value and not buttonA.value:  # just button A pressed
-        display.fill(color565(255, 0, 0))  # red
-    if buttonA.value and not buttonB.value:  # just button B pressed
-        display.fill(color565(0, 0, 255))  # blue
-    if not buttonA.value and not buttonB.value:  # none pressed
-        display.fill(color565(0, 255, 0))  # green
+
+
+while true:
+    try:
+        thetime=datetime.now()
+        draw_clock(thetime)
+    
+    except Exception as e:
+        print(e)

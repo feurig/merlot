@@ -108,8 +108,8 @@ while True:
     disp.show()
     time.sleep(0.1)
 
-    draw.rectangle((0, 0, width, height), outline=0, fill=0)
-    disp.poweroff()
+    #draw.rectangle((0, 0, width, height), outline=0, fill=0)
+    #disp.poweroff()
  
 #  except KeyboardInterrupt:
 #    draw.rectangle((0, 0, width, height), outline=0, fill=0)
