@@ -77,7 +77,7 @@ def draw_clock(t: datetime):
     draw.ellipse((top, top, bottom, bottom), fill = 0, outline =255)
     draw.line([center,center,center+mx,center+my], fill=255, width=0)
     draw.line([center,center,center+hx,center+hy], fill=255, width=0)
-
+"""
 # SPDX-FileCopyrightText: 2021 ladyada for Adafruit Industries
 # SPDX-License-Identifier: MIT
 # Main loop:
@@ -92,4 +92,3 @@ while True:
         display.fill(color565(0, 0, 255))  # blue
     if not buttonA.value and not buttonB.value:  # none pressed
         display.fill(color565(0, 255, 0))  # green
-"""
