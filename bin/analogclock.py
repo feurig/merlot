@@ -25,7 +25,7 @@ display = st7789.ST7789(
     height=240,
     x_offset=0,
     y_offset=80,
-    rotation=180    
+    rotation=270
 )
 
 backlight = digitalio.DigitalInOut(board.D22)
@@ -47,7 +47,7 @@ draw = ImageDraw.Draw(image)
 draw.rectangle((0, 0, width, height), outline=0, fill=0)
 
 # Define some constants to allow easy resizing of shapes.
-padding = +2
+padding = +4
 top = padding
 bottom = height - padding
 # Move left to right keeping track of the current x position for drawing shapes.
