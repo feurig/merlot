@@ -61,8 +61,8 @@ def draw_clock(t: datetime):
     linefill=(128, 96, 0, 255)
     h=t.hour
     m=t.minute
-    ml = center * 0.9 #fix later
-    hl = center * 0.6
+    ml = (center - padding) * 0.9 #fix later
+    hl = (center - padding) * 0.6
     a = 90.0 - (m / 60.0) * 360.0
     r = a * math.pi / 180.0
     mx = int(math.cos(r) * ml)
