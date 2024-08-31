@@ -1,6 +1,6 @@
 [Unit]
 Description = turn the led off as a service.
-After = network.target
+After = sysinit.target
  
 [Service]
 Type = oneshot
@@ -13,4 +13,4 @@ RestartSec = 5
 TimeoutStartSec = infinity
 
 [Install]
-WantedBy = multi-user.target
+WantedBy = sysinit.target
