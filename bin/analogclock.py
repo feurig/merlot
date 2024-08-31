@@ -46,7 +46,7 @@ draw = ImageDraw.Draw(image)
 draw.rectangle((0, 0, width, height), outline=0, fill=0)
 
 # Define some constants to allow easy resizing of shapes.
-padding = +8
+padding = +16
 top = padding
 bottom = height - padding
 # Move left to right keeping track of the current x position for drawing shapes.
