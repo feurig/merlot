@@ -1,0 +1,16 @@
+[Unit]
+Description = Analog Clock as a service.
+After = network.target # Assuming you want to start after network interfaces are made available
+ 
+[Service]
+Type = simple
+ExecStart = python3 /usr/local/merlot/bin/analogclock.py &
+User = root # User to run the script as
+Group = root # Group to run the script as
+Restart = on-failure # Restart when there are errors
+SyslogIdentifier = analogclock
+RestartSec = 5
+TimeoutStartSec = infinity
+
+[Install]
+WantedBy = multi-user.target # Make it accessible to other users
