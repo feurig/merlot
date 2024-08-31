@@ -57,7 +57,7 @@ x = 0
 font = ImageFont.load_default()
 
 def draw_clock(t: datetime):
-    center=(bottom-top)/2
+    center=((bottom-top)/2)+padding
     linefill=(128, 96, 0, 255)
     h=t.hour
     m=t.minute
