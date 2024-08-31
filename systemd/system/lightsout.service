@@ -3,8 +3,8 @@ Description = turn the led off as a service.
 After = network.target
  
 [Service]
-Type = simple
-ExecStart = echo 0 | tee /sys/class/leds/mmc0/brightness && echo 0 | tee /sys/class/leds/ACT/brightness
+Type = oneshot
+ExecStart= /usr/local/merlot/bin/lightsout.sh
 User = root
 Group = root
 # Restart = on-failure

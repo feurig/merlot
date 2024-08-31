@@ -1,6 +1,6 @@
-import time
-from PIL import Image, ImageDraw, ImageFont
-from datetime import datetime
+import time 
+from PIL import Image, ImageDraw, ImageFont 
+from datetime import datetime 
 import math
 
 import digitalio
@@ -58,7 +58,7 @@ font = ImageFont.load_default()
 
 def draw_clock(t: datetime):
     center=(bottom-top)/2
-    linefill=(255, 255, 64, 255))
+    linefill=(128, 96, 0, 255)
     h=t.hour
     m=t.minute
     ml = center * 0.9 #fix later
@@ -85,7 +85,7 @@ while True:
         draw_clock(thetime)
         display.image(image)
         #display.show()
-        time.sleep(0.1)
+        time.sleep(1.0)
 
 
     
