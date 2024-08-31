@@ -42,12 +42,11 @@ height = display.height
 #width = 250
 #height = 250
 image = Image.new("RGB", (width, height))
-rotation = 180
 draw = ImageDraw.Draw(image)
 draw.rectangle((0, 0, width, height), outline=0, fill=0)
 
 # Define some constants to allow easy resizing of shapes.
-padding = +4
+padding = +8
 top = padding
 bottom = height - padding
 # Move left to right keeping track of the current x position for drawing shapes.
@@ -59,7 +58,7 @@ font = ImageFont.load_default()
 
 def draw_clock(t: datetime):
     center=(bottom-top)/2
-
+    linefill=(255, 255, 64, 255))
     h=t.hour
     m=t.minute
     ml = center * 0.9 #fix later
@@ -75,9 +74,9 @@ def draw_clock(t: datetime):
     hy = -int(math.sin(r) * hl)
  
     print(h, ":" ,m)
-    draw.ellipse((top, top, bottom, bottom), fill = 0, outline =255)
-    draw.line([center,center,center+mx,center+my], fill=255, width=0)
-    draw.line([center,center,center+hx,center+hy], fill=255, width=0)
+    draw.ellipse((top, top, bottom, bottom), fill = 0, outline =linefill)
+    draw.line([center,center,center+mx,center+my], fill=linefill, width=0)
+    draw.line([center,center,center+hx,center+hy], fill=linefill, width=0)
 
 
 while True:
