@@ -1,0 +1,16 @@
+[Unit]
+Description = turn the led off as a service.
+After = network.target
+ 
+[Service]
+Type = simple
+ExecStart = echo 0 | tee /sys/class/leds/mmc0/brightness && echo 0 | tee /sys/class/leds/ACT/brightness
+User = root
+Group = root
+# Restart = on-failure
+SyslogIdentifier = lightsout
+RestartSec = 5
+TimeoutStartSec = infinity
+
+[Install]
+WantedBy = multi-user.target
