@@ -35,6 +35,8 @@ I have a bunch pi zeros and $3 ethernet adapters and poe power adapters. Now I j
 
 ![sht30](docs/images/sht30.png)
 
+# Displays.... YOU ARE HERE!
+
 # References
 
 - [https://www.devwithimagination.com/2022/08/07/restarting-poe-via-ssh-on-a-usw-lite-16-poe/](https://www.devwithimagination.com/2022/08/07/restarting-poe-via-ssh-on-a-usw-lite-16-poe/)
