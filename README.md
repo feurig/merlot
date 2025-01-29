@@ -1,4 +1,6 @@
-# node-export-temperatures
+# merlot - a bunch of raspberry pis about the house
+
+## node-export-temperatures
 
 ![This](docs/images/Metrics.png)
 TL;DR; Cheap prometheus trick. 
