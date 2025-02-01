@@ -12,9 +12,9 @@ cmd = "hostname -I | cut -d' ' -f1"
 IP = subprocess.check_output(cmd, shell=True).decode("utf-8")
 cmd = "date +%X\ %d%b%y"
 TimeDate = subprocess.check_output(cmd, shell=True).decode("utf-8")
-cmd = "fetchtemp.py"
+cmd = "/usr/local/merlot/bin/readtemp.py"
 LocalTemp = subprocess.check_output(cmd, shell=True).decode("utf-8")
-cmd = 'gathertemps.py'
+cmd = '/usr/local/merlot/bin/gathertemps.py'
 PromData = subprocess.check_output(cmd, shell=True).decode("utf-8")
 temps=PromData.split()
 
@@ -32,18 +32,16 @@ lcd = character_lcd.Character_LCD_I2C(i2c, lcd_columns, lcd_rows)
 # Turn backlight on
 lcd.backlight = True
 # Print a two line message
-lcd.message = CMD + IP
+lcd.message = IP
 # Wait 5s
 time.sleep(5)
 lcd.clear()
-# Print two line message right to left
-lcd.text_direction = lcd.RIGHT_TO_LEFT
 lcd.message = TimeDate
 # Wait 5s
 time.sleep(5)
 lcd.clear()
 lcd.cursor = True
-lcd.message = temps
+lcd.message = LocalTemp
 # Wait 5s
 time.sleep(5)
 # Display blinking cursor
