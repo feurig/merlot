@@ -18,7 +18,7 @@ display = segments.Seg7x4(i2c)
 display.fill(0)
 while True:
     display.print(time.strftime("%H:%M"))
-    time.sleep(30)
+    time.sleep(5)
     file=open('/var/lib/prometheus/node-exporter/temp.prom')
     display.colon = False
     for line in file.readlines():
@@ -27,5 +27,5 @@ while True:
             display.print(str(values[1])[0:4]+'f')
     file.close()
     display.colon = False
-    time.sleep(30)
+    time.sleep(5)
     
