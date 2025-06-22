@@ -1,40 +1,46 @@
-#!/usr/bin/python
+# SPDX-FileCopyrightText: 2019 Mikey Sklar for Adafruit Industries
+#
+# SPDX-License-Identifier: MIT
 
 import time
-import datetime
+import board
+import busio
+from adafruit_ht16k33 import segments
 
-from Adafruit_LED_Backpack import SevenSegment
+# Create the I2C interface.
+i2c = busio.I2C(board.SCL, board.SDA)
 
-# ===========================================================================
-# Clock Example
-# ===========================================================================
-segment = SevenSegment.SevenSegment(address=0x70)
+# Create the LED segment class.
+# This creates a 7 segment 4 character display:
+display = segments.Seg7x4(i2c)
 
-# Initialize the display. Must be called once before using the display.
-segment.begin()
+# Clear the display.
+display.fill(0)
 
-print "Press CTRL+Z to exit"
+# Can just print a number
+display.print(42)
+time.sleep(1)
 
-# Continually update the time on a 4 char, 7-segment display
-while(True):
-  now = datetime.datetime.now()
-  hour = now.hour
-  minute = now.minute
-  second = now.second
+# Set the first character to '1':
+display[0] = '1'
+# Set the second character to '2':
+display[1] = '2'
+# Set the third character to 'A':
+display[2] = 'A'
+# Set the forth character to 'B':
+display[3] = 'B'
+time.sleep(1)
 
-  segment.clear()
-  # Set hours
-  segment.set_digit(0, int(hour / 10))     # Tens
-  segment.set_digit(1, hour % 10)          # Ones
-  # Set minutes
-  segment.set_digit(2, int(minute / 10))   # Tens
-  segment.set_digit(3, minute % 10)        # Ones
-  # Toggle colon
-  segment.set_colon(second % 2)              # Toggle colon at 1Hz
+numbers = [0.0, 1.0, 0.55, 10.23, 100.5]
 
-  # Write the display buffer to the hardware.  This must be called to
-  # update the actual display LEDs.
-  segment.write_display()
+# print floating point numbers
+for i in numbers:
+    display.print(str(i))
+    time.sleep(0.5)
 
-  # Wait a quarter second (less than 1 second to prevent colon blinking getting$
-  time.sleep(0.25)
+# print hex values, enable colon
+for i in range(0xFF):
+    display.fill(0)
+    display.print(':')
+    display.print(hex(i))
+    time.sleep(0.25)
