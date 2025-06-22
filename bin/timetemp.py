@@ -20,7 +20,7 @@ while True:
     display.print(time.strftime("%H:%M"))
     time.sleep(5)
     file=open('/var/lib/prometheus/node-exporter/temp.prom')
-    display.colon = False
+    display.colon = True
     for line in file.readlines():
         values=line.split()[0:2]
         if values[0]=='home_temperature_farenheit':
