@@ -4,8 +4,8 @@
 
 """Simple test for 16x2 character lcd connected to an MCP23008 I2C LCD backpack."""
 import time
-import board
-import adafruit_character_lcd.character_lcd_i2c as character_lcd
+import board # type: ignore
+import adafruit_character_lcd.character_lcd_i2c as character_lcd # type: ignore
 import subprocess
 
 cmd = "hostname -I | cut -d' ' -f1"

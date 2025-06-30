@@ -3,9 +3,9 @@
 # SPDX-License-Identifier: MIT
 
 import time
-import board
-import busio
-from adafruit_ht16k33 import segments
+import board # type: ignore
+import busio # type: ignore
+from adafruit_ht16k33 import segments # type: ignore
 
 # Create the I2C interface.
 i2c = busio.I2C(board.SCL, board.SDA)
