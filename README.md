@@ -1,4 +1,6 @@
-# node-export-temperatures
+# merlot - a bunch of raspberry pis about the house
+
+## node-export-temperatures
 
 ![This](docs/images/Metrics.png)
 TL;DR; Cheap prometheus trick. 
@@ -34,6 +36,8 @@ I have a bunch pi zeros and $3 ethernet adapters and poe power adapters. Now I j
 ## sht30
 
 ![sht30](docs/images/sht30.png)
+
+# Displays.... YOU ARE HERE!
 
 # References
 
