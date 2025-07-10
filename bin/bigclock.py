@@ -1,5 +1,6 @@
 !#/usr/bin/python3
 
+import time
 import board
 import busio
 import adafruit_character_lcd.character_lcd_i2c as character_lcd
@@ -78,3 +79,6 @@ def printTime():
     lcd.cursor_position(15,0)
     lcd.message=datetime.now().strftime("%d%b")
     
+if __name__ == '__main__':
+    printTime()
+    time.sleep(60)
