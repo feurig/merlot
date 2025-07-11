@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 #-------------------------------------------------------------------gathertemps.py
 # pull temperature sensor data from prometheus server
 # 

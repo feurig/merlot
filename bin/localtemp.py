@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 #-----------------------------------------------------------------localtemps.py
 # pull temperature sensor data from .prom file
 # 

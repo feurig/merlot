@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import time 
 from PIL import Image, ImageDraw, ImageFont 
 from datetime import datetime 

@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 #--------------------------------------------------------------------- clock.py
 # Display date and time as well as indoor and outdoor temperatures
 # 
