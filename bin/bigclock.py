@@ -77,7 +77,7 @@ def printTime():
     clearCollumn(10)
     printNum4(int(date_string[3]),11)
     lcd.cursor_position(14,0)
-    lcd.message=date_string[:-2
+    lcd.message=date_string[:-2]
     lcd.cursor_position(15,1)
     lcd.message=datetime.now().strftime("%d%b")
     
