@@ -66,8 +66,6 @@ def clearCollumn(col=6):
 
 def printTime():
     date_string = f'{datetime.now():%I%M%p}'
-    print(date_string)
-    print(date_string[:-2])
     if (date_string[0] == '1'):
         printShort1()
     else:
@@ -79,7 +77,7 @@ def printTime():
     clearCollumn(10)
     printNum4(int(date_string[3]),11)
     lcd.cursor_position(14,0)
-    lcd_message=date_string[4:6]
+    lcd.message=date_string[:-2
     lcd.cursor_position(15,1)
     lcd.message=datetime.now().strftime("%d%b")
     
