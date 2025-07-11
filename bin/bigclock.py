@@ -65,7 +65,7 @@ def clearCollumn(col=6):
 
 
 def printTime():
-    date_string = f'{datetime.now():%H%M}'
+    date_string = f'{datetime.now():%I%M}'
     if (date_string[0] == '1'):
         printShort1()
     else:
