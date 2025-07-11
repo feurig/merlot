@@ -80,5 +80,6 @@ def printTime():
     lcd.message=datetime.now().strftime("%d%b")
     
 if __name__ == '__main__':
-    printTime()
-    time.sleep(60)
+    while true:
+        printTime()
+        time.sleep(60)
