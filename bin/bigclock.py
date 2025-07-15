@@ -5,6 +5,7 @@ import board
 import busio
 import adafruit_character_lcd.character_lcd_i2c as character_lcd
 from datetime import datetime
+import subprocess
 
 i2c = busio.I2C(board.SCL, board.SDA)
 lcd = character_lcd.Character_LCD_I2C(i2c, 20, 4)
@@ -63,6 +64,13 @@ def clearCollumn(col=6):
         lcd.cursor_position(col,row)
         lcd.message="\xfe"
 
+def localTempF():
+    with open('/var/lib/prometheus/node-exporter/temp.prom', 'r') as f:
+        for line in f.readlines():
+            if 'Xhome_temperature_farenheit' in ('X'+line) :
+                return('%.2fF' % (float(line.split(' ')[1],)))
+
+
 
 def printTime():
     date_string = f'{datetime.now():%I%M%p}'
@@ -80,7 +88,9 @@ def printTime():
     lcd.message=date_string[-2:]
     lcd.cursor_position(15,1)
     lcd.message=datetime.now().strftime("%d%b")
-    
+    lcd.cursor_position(15,2)
+    lcd.message=localTempF()
+
 if __name__ == '__main__':
     while True:
         printTime()
