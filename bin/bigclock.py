@@ -88,7 +88,7 @@ def printTime():
     lcd.message=date_string[-2:]
     lcd.cursor_position(15,1)
     lcd.message=datetime.now().strftime("%d%b")
-    lcd.cursor_position(15,2)
+    lcd.cursor_position(14,2)
     lcd.message=localTempF()
 
 if __name__ == '__main__':
