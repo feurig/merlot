@@ -67,6 +67,7 @@ for tempsensorid in i2c.scan():
 
 if (i_can_has_temperature):
     
+    tempfile.tempdir="/var/tmp/"  # otherwise it tries to make the file on a different filesystem
     tmpfile =os.path.join(tempfile.gettempdir(),'temp.prom')
     file = open(tmpfile, 'w')
     sys.stdout = file
