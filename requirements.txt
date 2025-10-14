@@ -13,3 +13,4 @@ adafruit-circuitpython-ssd1305
 Adafruit-PlatformDetect
 Adafruit-PureIO
 adafruit-circuitpython-charlcd
+adafruit-circuitpython-rgb-display
