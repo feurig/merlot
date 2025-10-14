@@ -1,0 +1,16 @@
+[Unit]
+Description = Analog Clock as a service.
+After = network.target
+ 
+[Service]
+Type = simple
+ExecStart = python3 /usr/local/merlot/bin/bigclock.py &
+User = root
+Group = root
+Restart = on-failure
+SyslogIdentifier = bigclock
+RestartSec = 5
+TimeoutStartSec = infinity
+
+[Install]
+WantedBy = multi-user.target
