@@ -14,3 +14,5 @@ Adafruit-PlatformDetect
 Adafruit-PureIO
 adafruit-circuitpython-charlcd
 adafruit-circuitpython-rgb-display
+# if Adafruit-Blinka hasn't fixed this and gpio is still busy, uncomment and install the library in question. 
+# RPi.GPIO==0.7.1a4
