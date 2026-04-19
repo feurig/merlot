@@ -22,26 +22,48 @@ except FileNotFoundError:
     
 print("'Rainbow HAT'?" + str(hat_is_a_rainbow_hat) )
 
-from adafruit_ht16k33 import segments # type: ignore
-
-# Create the I2C interface.
-i2c = busio.I2C(board.SCL, board.SDA)
-
-# Create the LED segment class.
-# This creates a 7 segment 4 character display:
-display = segments.Seg7x4(i2c)
-
-# Clear the display.
-display.fill(0)
-while True:
-    display.print(time.strftime("%H:%M"))
-    time.sleep(5)
-    file=open('/var/lib/prometheus/node-exporter/temp.prom')
-    display.colon = False
-    for line in file.readlines():
-        values=line.split()[0:2]
-        if values[0]=='home_temperature_farenheit':
-            display.print(str(values[1])[0:4]+'f')
-    file.close()
-    time.sleep(5)
+if hat_is_a_rainbow_hat:
+    import rainbowhat as rh
     
+    while True:
+        rh.display.print_str(time.strftime("%H%M"))
+        rh.display.show()
+        # display.print(time.strftime("%H:%M"))
+        time.sleep(5)
+        file=open('/var/lib/prometheus/node-exporter/temp.prom')
+        # display.colon = False
+        for line in file.readlines():
+            values=line.split()[0:2]
+            if values[0]=='home_temperature_farenheit':
+                rh.display.print_str(str(values[1])[0:3]+'f')
+                rh.display.show()
+            #    display.print(str(values[1])[0:3]+'f')
+        file.close()
+        time.sleep(5)
+
+   
+else:
+    
+    from adafruit_ht16k33 import segments # type: ignore
+
+    # Create the I2C interface.
+    i2c = busio.I2C(board.SCL, board.SDA)
+
+    # Create the LED segment class.
+    # This creates a 7 segment 4 character display:
+    display = segments.Seg7x4(i2c)
+
+    # Clear the display.
+    display.fill(0)
+    while True:
+        display.print(time.strftime("%H:%M"))
+        time.sleep(5)
+        file=open('/var/lib/prometheus/node-exporter/temp.prom')
+        display.colon = False
+        for line in file.readlines():
+            values=line.split()[0:2]
+            if values[0]=='home_temperature_farenheit':
+                display.print(str(values[1])[0:4]+'f')
+        file.close()
+        time.sleep(5)
+        
