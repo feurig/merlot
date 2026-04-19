@@ -5,6 +5,23 @@
 import time
 import board # type: ignore
 import busio # type: ignore
+
+hat_id_file_path = "/proc/device-tree/hat/product"
+hat_is_a_rainbow_hat = False
+
+try:
+    file=open(hat_id_file_path, "r") 
+    content = "" 
+    for line in file.readlines():
+       content += line
+    print(content) 
+    if ('Rainbow HAT' in content):
+       hat_is_a_rainbow_hat = True
+except FileNotFoundError:
+    print("The file was not found. Please check the path.")
+    
+print("'Rainbow HAT'?" + str(hat_is_a_rainbow_hat) )
+
 from adafruit_ht16k33 import segments # type: ignore
 
 # Create the I2C interface.
