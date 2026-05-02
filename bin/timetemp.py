@@ -1,6 +1,4 @@
 #!/usr/bin/python3
-# References : SPDX-FileCopyrightText: 2019 Mikey Sklar for Adafruit Industries
-# SPDX-License-Identifier: MIT
 
 import time
 import board # type: ignore
@@ -14,7 +12,7 @@ try:
     content = "" 
     for line in file.readlines():
        content += line
-    print(content) 
+    # print(content) 
     if ('Rainbow HAT' in content):
        hat_is_a_rainbow_hat = True
 except FileNotFoundError:
@@ -23,8 +21,7 @@ except FileNotFoundError:
 print("'Rainbow HAT'?" + str(hat_is_a_rainbow_hat) )
 
 if hat_is_a_rainbow_hat:
-    import rainbowhat as rh
-    
+    import rainbowhat as rh    
     while True:
         rh.display.print_str(time.strftime("%H%M"))
         rh.display.show()
@@ -40,19 +37,14 @@ if hat_is_a_rainbow_hat:
             #    display.print(str(values[1])[0:3]+'f')
         file.close()
         time.sleep(5)
-
-   
-else:
-    
+else:    
     from adafruit_ht16k33 import segments # type: ignore
 
     # Create the I2C interface.
     i2c = busio.I2C(board.SCL, board.SDA)
-
     # Create the LED segment class.
     # This creates a 7 segment 4 character display:
     display = segments.Seg7x4(i2c)
-
     # Clear the display.
     display.fill(0)
     while True:
